@@ -9,7 +9,7 @@ from model import SimpleCNN
 app = FastAPI()
 
 # Загружаем модель
-model = SimpleCNN(num_classes=10)
+model = SimpleCNN(num_classes=12)
 model.load_state_dict(torch.load("model.pth", map_location=torch.device("cpu")))
 model.eval()
 
