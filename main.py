@@ -10,12 +10,12 @@ app = FastAPI()
 
 # Загружаем модель
 model = SimpleCNN(num_classes=12)
-model.load_state_dict(torch.load("model.pth", map_location=torch.device("cpu")))
+model.load_state_dict(torch.load("model.pth", map_location=torch.device("cpu"), weights_only=True))
 model.eval()
 
 # Преобразование входного изображения
 transform = transforms.Compose([
-    transforms.Resize((32, 32)),
+    transforms.Resize((128, 128)),
     transforms.ToTensor(),
 ])
 
